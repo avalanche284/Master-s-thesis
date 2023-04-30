@@ -50,6 +50,9 @@ for i = 1:size(C_IQR, 2)
     title(['Histogram of ' column_names{i}]);
  end
 
+figure;
+plotmatrix(C_IQR);
+title('Scatter Plot Matrix before normalization');
 
 % ### Normalization
 % After examination of above histogram charts, I state that:
@@ -93,8 +96,8 @@ end
 % scatter plot in the matrix visualizes the relationship between a pair
 % of variables.
 figure;
-plotmatrix(C_IQR);
-title('Scatter Plot Matrix of Variables');
+plotmatrix(C_normalized);
+title('Scatter Plot Matrix after normalization');
 
 
 % Standard deviation
