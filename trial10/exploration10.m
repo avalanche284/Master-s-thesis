@@ -139,10 +139,34 @@ column_names(low_corr_with_pm25)
 % Heatmap
 % Correlation heatmaps are a type of plot that visualize the strength of
 % relationships between numerical variables.
-correlation_matrix = corrcoef(C_IQR);
+correlation_matrix_IQR = corrcoef(C_IQR);
+% figure;
+% heatmap(column_names, column_names, correlation_matrix_IQR);
+% title('Heatmap of Correlation Matrix before normalization');
+% 
+correlation_matrix_normalized = corrcoef(C_normalized);
+% figure;
+% heatmap(column_names, column_names, correlation_matrix_normalized);
+% title('Heatmap of Correlation Matrix after normalization');
+% Heatmap before normalization
 figure;
-heatmap(column_names, column_names, correlation_matrix);
-title('Heatmap of Correlation Matrix');
+imagesc(correlation_matrix_IQR);
+colormap('jet'); % Choose a colormap
+colorbar('Ticks', min(correlation_matrix_IQR(:)):0.01:max(correlation_matrix_IQR(:)),...
+         'TickLabels', cellstr(num2str((min(correlation_matrix_IQR(:)):0.01:max(correlation_matrix_IQR(:)))', '%.2f'))); 
+title('Heatmap of Correlation Matrix before normalization');
+set(gca, 'XTick', 1:length(column_names), 'XTickLabel', column_names, 'XTickLabelRotation', 45);
+set(gca, 'YTick', 1:length(column_names), 'YTickLabel', column_names);
+
+% Heatmap after normalization
+figure;
+imagesc(correlation_matrix_normalized);
+colormap('jet'); % Choose a colormap
+colorbar('Ticks', min(correlation_matrix_normalized(:)):0.01:max(correlation_matrix_normalized(:)),...
+         'TickLabels', cellstr(num2str((min(correlation_matrix_normalized(:)):0.01:max(correlation_matrix_normalized(:)))', '%.2f')));
+title('Heatmap of Correlation Matrix after normalization');
+set(gca, 'XTick', 1:length(column_names), 'XTickLabel', column_names, 'XTickLabelRotation', 45);
+set(gca, 'YTick', 1:length(column_names), 'YTickLabel', column_names);
 
 
 % Saving plots to a folder.
