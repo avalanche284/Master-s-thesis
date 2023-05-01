@@ -169,6 +169,61 @@ set(gca, 'XTick', 1:length(column_names), 'XTickLabel', column_names, 'XTickLabe
 set(gca, 'YTick', 1:length(column_names), 'YTickLabel', column_names);
 
 
+% outlier table
+% Initialize a table to store the number of outliers
+outliers_table = array2table(zeros(size(C, 2), 2), 'VariableNames', {'Before_IQR', 'After_IQR'}, 'RowNames', column_names);
+
+for i = 1:num_vars
+    column = C(:, i);
+    [lower_bound, upper_bound] = iqr_bounds(column);
+    % Calculate the number of outliers before applying the IQR method
+    outliers_before = sum(column < lower_bound | column > upper_bound);
+    outliers_table.Before_IQR(column_names{i}) = outliers_before;
+    
+    column_IQR = C_IQR(:, i);
+    [lower_bound, upper_bound] = iqr_bounds(column_IQR);
+    % Calculate the number of outliers after applying the IQR method
+    outliers_after = sum(column_IQR < lower_bound | column_IQR > upper_bound);
+    outliers_table.After_IQR(column_names{i}) = outliers_after;
+end
+
+% Calculate the number of outliers removed for each feature
+outliers_table.Outliers_Removed = outliers_table.Before_IQR - outliers_table.After_IQR;
+
+disp(outliers_table)
+
+% Comparison
+% Descriptive statistics before preprocessing
+mean_raw = mean(C);
+median_raw = median(C);
+std_dev_raw = std(C);
+skewness_raw = skewness(C);
+
+% Descriptive statistics after preprocessing
+mean_preprocessed = mean(C_normalized);
+median_preprocessed = median(C_normalized);
+std_dev_preprocessed = std(C_normalized);
+skewness_preprocessed = skewness(C_normalized);
+
+% Convert numbers to strings with 2 decimal places
+mean_raw_str = arrayfun(@(x) sprintf('%.2f', x), mean_raw, 'UniformOutput', false);
+median_raw_str = arrayfun(@(x) sprintf('%.2f', x), median_raw, 'UniformOutput', false);
+std_dev_raw_str = arrayfun(@(x) sprintf('%.2f', x), std_dev_raw, 'UniformOutput', false);
+skewness_raw_str = arrayfun(@(x) sprintf('%.2f', x), skewness_raw, 'UniformOutput', false);
+
+mean_preprocessed_str = arrayfun(@(x) sprintf('%.2f', x), mean_preprocessed, 'UniformOutput', false);
+median_preprocessed_str = arrayfun(@(x) sprintf('%.2f', x), median_preprocessed, 'UniformOutput', false);
+std_dev_preprocessed_str = arrayfun(@(x) sprintf('%.2f', x), std_dev_preprocessed, 'UniformOutput', false);
+skewness_preprocessed_str = arrayfun(@(x) sprintf('%.2f', x), skewness_preprocessed, 'UniformOutput', false);
+
+% Comparison
+desc_table = table(mean_raw_str', median_raw_str', std_dev_raw_str', skewness_raw_str', mean_preprocessed_str', ...
+    median_preprocessed_str', std_dev_preprocessed_str', skewness_preprocessed_str', ...
+    'VariableNames', {'Mean_Raw', 'Median_Raw', 'Std_Dev_Raw', 'Skewness_Raw', 'Mean_Preprocessed', ...
+    'Median_Preprocessed', 'Std_Dev_Preprocessed', 'Skewness_Preprocessed'}, 'RowNames', column_names);
+disp(desc_table)
+
+
 % Saving plots to a folder.
 if ~exist('Plots_exploring_the_dataset', 'dir')
     mkdir('Plots_exploring_the_dataset');
