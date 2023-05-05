@@ -153,7 +153,7 @@ correlation_matrix_normalized = corrcoef(C_normalized);
 figure;
 imagesc(correlation_matrix_IQR);
 colormap('jet'); % Choose a colormap
-colorbar('Ticks', [-1, -0.5, 0, 0.5, 1], 'TickLabels', {'-1', '-0.5', '0', '0.5', '1'}); 
+colorbar('Ticks', [-1,-0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1], 'TickLabels', {'-1','-0.75', '-0.5', '-0.25', '0', '0.25', '0.5', '0.75', '1'}); 
 title('Heatmap of Correlation Matrix before normalization');
 set(gca, 'XTick', 1:length(column_names), 'XTickLabel', column_names, 'XTickLabelRotation', 45);
 set(gca, 'YTick', 1:length(column_names), 'YTickLabel', column_names);
@@ -162,7 +162,7 @@ set(gca, 'YTick', 1:length(column_names), 'YTickLabel', column_names);
 figure;
 imagesc(correlation_matrix_normalized);
 colormap('jet'); % Choose a colormap
-colorbar('Ticks', [-1, -0.5, 0, 0.5, 1], 'TickLabels', {'-1', '-0.5', '0', '0.5', '1'});
+colorbar('Ticks', [-1,-0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1], 'TickLabels', {'-1','-0.75', '-0.5', '-0.25', '0', '0.25', '0.5', '0.75', '1'});
 title('Heatmap of Correlation Matrix after normalization');
 set(gca, 'XTick', 1:length(column_names), 'XTickLabel', column_names, 'XTickLabelRotation', 45);
 set(gca, 'YTick', 1:length(column_names), 'YTickLabel', column_names);
