@@ -167,6 +167,9 @@ title('Heatmap of Correlation Matrix after normalization');
 set(gca, 'XTick', 1:length(column_names), 'XTickLabel', column_names, 'XTickLabelRotation', 45);
 set(gca, 'YTick', 1:length(column_names), 'YTickLabel', column_names);
 
+% Correlatoin matrix
+corrMatrix = corrcoef(C_IQR);
+disp(array2table(corrMatrix, 'RowNames', column_names, 'VariableNames', column_names));
 
 % outlier table
 % Initialize a table to store the number of outliers
