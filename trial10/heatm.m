@@ -1,4 +1,5 @@
-% Read the data from the CSV file
+% Szymon Bartoszewicz
+% The purpose of this script is to print heat xalendar for PM2.5.
 data = readtable('warsaw_data.csv', 'VariableNamingRule', 'preserve');
 
 % Convert the date column to a datetime array
@@ -11,6 +12,11 @@ data.Day = day(data.date);
 
 % Calculate the mean PM2.5 values for each day of each month
 meanPM25 = grpstats(data, {'Month', 'Day'}, 'mean', 'DataVars', 'pm2_5');
+
+% Set color limits
+colorLimits = [min(meanPM25{:, 'mean_pm2_5'}(:)), max(meanPM25{:, 'mean_pm2_5'}(:))];
+
+% Unstack the meanPM25 table
 meanPM25 = unstack(meanPM25, 'mean_pm2_5', 'Month');
 
 % Remove the first two columns
@@ -23,6 +29,8 @@ h.Title = 'Calendar Heatmap of PM2.5 values in 2022';
 h.XLabel = 'Month';
 h.YLabel = 'Day';
 
-% Set color limits
-colorLimits = [min(meanPM25{:, 'mean_pm2_5'}(:)), max(meanPM25{:, 'mean_pm2_5'}(:))];
+% Set the color limits for the heatmap
 h.ColorLimits = colorLimits;
+
+% Display cell values with maximum 2 decimal places
+h.CellLabelFormat = '%.2f';
