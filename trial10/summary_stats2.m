@@ -1,4 +1,5 @@
-% Read the CSV file
+% The purpose of this script is to provide statistics hekoful to describe
+% histograms. 
 filename = 'warsaw_data.csv';
 data = readtable(filename);
 

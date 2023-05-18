@@ -1,6 +1,9 @@
+% The sole purpose of this script is to provide some statistics. Useful for
+% the analizing boxplots part in the thesis.
+
 filename = 'warsaw_data.csv';
 data = readmatrix(filename);
-data = [ % Your data matrix here ];
+% data = [ % Your data matrix here ];
 
 for column_number = 2:size(data, 2)
     % Median
