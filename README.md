@@ -1,6 +1,6 @@
 # Multivariate Regression Method for Air Pollution Prediciton in a Given Area
 
-![flowchart]("scripts/Flowchart1.png")
+![flowchart]("Flowchart1.png")
 
 ## Abstract
 The increasing air pollution is causing significant risks to public health and the global economy. It caused premature deaths to seven million people (about fourteen times the population of Gdansk) in 2019. The issue emphasizes the need for reliable forecasting models to be developed. This thesis investigates a novel algorithm, combining multivariate regression, the sliding window approach, and the Moore-Penrose pseudoinverse to predict air pollution levels in Warsaw – a city with significant pollution. The research identifies a promising algorithm utilizing a 30-day sliding window for forecasting air pollution. This approach delivers encouraging results when integrated with the Least Absolute Shrinkage and Selection Operator (LASSO) method for predictor selection. The primary application of this model involves its integration into software applications, providing an accessible tool for individuals to plan outdoor activities, thereby mitigating health risks associated with high pollution levels. This research contributes significantly to environmental data science and enhances public access to vital air quality information by offering an innovative solution to a crucial global concern.
