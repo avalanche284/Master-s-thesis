@@ -9,7 +9,7 @@ import time
 from datetime import datetime, timedelta
 from collections import defaultdict
 
-API_KEY = "cbe5fb89b57548f75578bfde1a572369"
+API_KEY = "removed"
 
 cities = [
     {"name": "Warsaw", "lat": 52.2297, "lon": 21.0122},
@@ -92,7 +92,7 @@ def main():
                 data.append(row)
 
     save_to_csv(data, "warsaw_daily_air_pollution_data.csv")
-    print("Daily air pollution data for Warsaw saved to warsaw_daily_air_pollution_data.csv")
+    print("Saved to warsaw_daily_air_pollution_data.csv")
 
 if __name__ == "__main__":
     main()

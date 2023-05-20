@@ -1,3 +1,5 @@
+% this funciton is used in the main scripts that is trail10.m, summer and
+% winter
 % iqr_bounds function
 function [lower_bound, upper_bound] = iqr_bounds(column)
     Q1 = quantile(column, 0.25);

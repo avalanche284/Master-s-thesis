@@ -3,25 +3,18 @@
 
 filename = 'warsaw_data.csv';
 data = readmatrix(filename);
-% data = [ % Your data matrix here ];
 
 for column_number = 2:size(data, 2)
-    % Median
     median_value = median(data(:, column_number));
 
-    % Quartile 1 (Q1)
     q1 = quantile(data(:, column_number), 0.25);
 
-    % Quartile 3 (Q3)
     q3 = quantile(data(:, column_number), 0.75);
 
-    % Minimum
     min_value = min(data(:, column_number));
 
-    % Maximum
     max_value = max(data(:, column_number));
 
-    % Outliers
     iqr = q3 - q1;
     lower_bound = q1 - 1.5 * iqr;
     upper_bound = q3 + 1.5 * iqr;

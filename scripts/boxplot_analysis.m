@@ -1,3 +1,5 @@
+% The sole purpose of this script is to help analize the boxplots part of
+% my thesis.
 % boxplot analysis
 filename = 'warsaw_data.csv';
 data = readmatrix(filename);

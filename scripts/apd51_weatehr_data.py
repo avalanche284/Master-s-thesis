@@ -23,7 +23,7 @@ def fetch_weather_data(lat, lon, start, end, api_key):
 
     return weather_data
 
-api_key = "cbe5fb89b57548f75578bfde1a572369"
+api_key = "REMOVED"
 lat = "52.2297" # Warsaw
 lon = "21.0122"
 
@@ -41,7 +41,6 @@ while current_start < end:
     weather_data.update(fetch_weather_data(lat, lon, current_start, current_end, api_key))
     current_start = current_end
 
-# Create a pandas DataFrame
 df = pd.DataFrame(weather_data.values(), columns=['timestamp', 'temp', 'pressure', 'humidity', 'wind_speed', 'clouds'])
 
 # Convert timestamp to datetime and set it as index
@@ -53,7 +52,7 @@ date_range = pd.date_range(start=datetime.fromtimestamp(start).date(), end=datet
 date_range_df = pd.DataFrame(date_range, columns=['timestamp']).set_index('timestamp')
 merged_data = date_range_df.join(df, how='left')
 
-# Save the daily weather data with None values for missing data to a CSV file
+#  None values for missing data
 merged_data.to_csv('warsaw_daily_weather_data_364_days.csv')
 
-print("Daily weather data for Warsaw, Poland, for the last 364 days saved as 'warsaw_daily_weather_data_364_days.csv'.")
+print("Saved as 'warsaw_daily_weather_data_364_days.csv'.")

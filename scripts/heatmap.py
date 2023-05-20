@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import calendar
-df = pd.read_csv('trial10/warsaw_data.csv')
+df = pd.read_csv('warsaw_data.csv')
 df['date'] = pd.to_datetime(df['date'])
 df['Year'] = df['date'].dt.year
 df['Month'] = df['date'].dt.month

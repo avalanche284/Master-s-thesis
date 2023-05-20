@@ -1,5 +1,3 @@
-% trial10.m --> Based on trial8.m
-
 % The exploration of the dataset part is covered in a separate file named
 % exploration.m.
 
