@@ -1,4 +1,4 @@
-# Multivariate Regression Method for Air Pollution Prediciton in a Given Area
+# Multivariate Regression Method for Air Pollution Prediction in a Given Area
 
 ![flowchart](Flowchart1.png)
 
@@ -23,36 +23,37 @@ The increasing air pollution is causing significant risks to public health and t
 - scripts/trail10winter.m.
 
 ### **thesis.pdf**
-This document contain the text of my thesis.
+This document contains the text of my thesis.
 
 ### **apd21_air_pollution.py**
-This program acquire air pollution data.
+This program acquires air pollution data.
 
 ### **apd51_air_pollution.py**
-This program acquire weather data.
+This program acquires weather data.
 
 ### **warsaw_data.csv**
-This is dataset file.
+This is a dataset file.
 
 ### **exploration10.m**
-This script contain different methods for exploring the dataset.
+This script contains different methods for exploring the dataset.
 
 ### **trial10.m**
-This script contain the method. It predicts air pollution based on the whole year period.
+This script contains the method. It predicts air pollution based on the whole year period.
 
 ### **trial10summer.m**
-This script contain the method. It predicts air pollution based on the summer period.
+This script contains the method. It predicts air pollution based on the summer period.
 
 ### **trial10winter.m**
-This script contain the method. It predicts air pollution based on winter period.
+This script contains the method. It predicts air pollution based on the winter period.
 
-The other files present in `scripts` directory are either functions required to run the files described above or consists of analysis support.
+The other files in the `scripts` directory are either functions required to run the files described above or consist of analysis support.
 
-`results of 29 studies` contains the outcomes of conducting all of 29 studies on the dataset.
+`results of 29 studies` contains the outcomes of conducting all 29 studies on the dataset.
 
 Directory `other graphs` contain various graphical aids used in the paper.
 
-`Plots_exploring_the_dataset` is the folder which is created while executing of **exploration10.m** and contains plots supporting descriptive statistics.
+`Plots_exploring_the_dataset` is the folder created while executing **exploration10.m** and contains plots supporting descriptive statistics.
 
 
 <sub>Szymon Bartoszewicz WSB Merito University in Gdansk, 2023</sub>
+
